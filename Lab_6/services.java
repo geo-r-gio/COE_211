@@ -11,15 +11,16 @@ public class services {
     public static void main(String[] args){
         
         final int INPUT = 4;
-        int input;
-        int count = 0;
+        int input;      
+        String operation;
         
         Scanner scan = new Scanner(System.in);
         
-        System.out.println("Which service would you like to use?"+"\n"+"[1]: Basic week visualizer"+"\n"+"[2]: Advanced week visualizer"+"\n"+"[3]: Basic calculator"+"\n"+"[4]: Employee repertoire");
+        System.out.println("Which service would you like to use?"+"\n"+"[1]: Basic week visualizer"+"\n"+"[2]: Advanced week visualizer"+"\n"+
+                "[3]: Basic calculator"+"\n"+"[4]: Employee repertoire");
         input = scan.nextInt();
         
-         while (input < 0 || input > INPUT)
+         while (input <= 0 || input > INPUT)
     {
         System.out.print("Invalid input. Please reenter: ");
         input = scan.nextInt();
@@ -30,43 +31,61 @@ public class services {
             {
               
             case 1: 
-                
-//                 String day1= "Monday";
-//                 String day2= "Tuesday";
-//                 String day3= "Wednesday";
-//                 String day4= "Thursday";
-//                 String day5= "Friday";
-//                 String day6= "Saturday";
-//                 String day7= "Sunday";
-//                 
-//                 basicWeek days=new basicWeek(day1,day2,day3,day4,day5,day6,day7);
-                   BasicWeekVisualizer days=new BasicWeekVisualizer();
-                   days = days.print(days);
-                  System.out.println();                
-                
-               // System.out.println("The basic days of the week are: "+day1+" "+day2+" "+day3+" "+day4+" "+day5+" "+day6+" "+day7);
-                return;
-            case 2: 
-                
-                int index=1;
-                
-                 String day_1= "Monday";
-                 String day_2= "Tuesday";
-                 String day_3= "Wednesday";
-                 String day_4= "Thursday";
-                 String day_5= "Friday";
-                 String day_6= "Saturday";
-                 String day_7= "Sunday";
-                          
-                System.out.print(index+": "+day_1+","+"\n"+(index+1)+": "+day_2+","+"\n"+(index+2)+": "+day_3+","+"\n"+(index+3)+": "+day_4+","+"\n"+(index+4)+": "+day_5+","+"\n"+(index+5)+": "+day_6+","+"\n"+(index+6)+": "+day_7+".");
+
+                  BasicWeek days=new BasicWeek();
+             
+                  System.out.println("The basic days of the week are: "+days.toString());                
+                             
                 break;
+            case 2: 
+                            
+                   AdvancedWeek week=new AdvancedWeek();
+                   
+                   System.out.println("The advanced days of the week are: "+week.toString());
+                 
+                  break;
             case 3:
+               
+                Calculator calc=new Calculator();                  
                 
+                System.out.print(calc.toString());
                 
+                break;
+            case 4:
+                
+                Employee emp=new Employee();
+                
+                System.out.println(emp.toString());
+                
+                break;                                  
             default: 
-                System.out.println("Go");
-                
+              
+                break;
+                                
             }
-    }
+                                    
+            System.out.println("Would you like to perform another operation? (y/n)");
+            operation=scan.next(); 
+            
+            if(null == operation) 
+                System.out.println("Error in Character Identification.");
+            else 
+                         switch (operation) {
+                case "y":
+                    System.out.println("Which service would you like to use?"+"\n"+"[1]: Basic week visualizer"+"\n"+"[2]: Advanced week visualizer"+"\n"+
+                            "[3]: Basic calculator"+"\n"+"[4]: Employee repertoire");
+                    input = scan.nextInt();
+                    continue;
+                case "n":
+                    System.out.print("");
+                    break;
+                default:
+                    System.out.println("Error in Character Identification.");
+                    break;
+            }
+                    return;                
+                                           
+       
+     }
+  }
 }
-            }
