@@ -75,6 +75,12 @@ public class services {
                     System.out.println("Which service would you like to use?"+"\n"+"[1]: Basic week visualizer"+"\n"+"[2]: Advanced week visualizer"+"\n"+
                             "[3]: Basic calculator"+"\n"+"[4]: Employee repertoire");
                     input = scan.nextInt();
+                     
+                    while (input <= 0 || input > INPUT)
+                   {
+                    System.out.print("Invalid input. Please reenter: ");
+                    input = scan.nextInt();
+                   }             
                     continue;
                 case "n":
                     System.out.print("");
