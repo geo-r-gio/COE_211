@@ -77,7 +77,7 @@ public class Calculator {
         
         public String divide(int num1, int num2){
             result=num1/num2;
-            return num1+"/*"+num2+"="+result;
+            return num1+"/"+num2+"="+result;
         }
                 
         public  String toString(){
