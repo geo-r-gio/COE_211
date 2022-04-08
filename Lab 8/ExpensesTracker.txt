@@ -29,7 +29,7 @@ public class ExpensesTracker {
              amount=scan.nextDouble(); 
                          
              expenses = name + " purchased " + purchase + " for " + fmt.format(amount);
-             
+              
              output.println(expenses);
              
              System.out.print("Would you like to log another purchase? (y/n)");
