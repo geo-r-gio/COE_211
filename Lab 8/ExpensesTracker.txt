@@ -1,0 +1,46 @@
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.text.NumberFormat;
+import java.util.Scanner;
+
+/**
+ *
+ * @author user
+ */
+public class ExpensesTracker {
+    public static void main(String[] args) throws IOException{
+        
+         String name, purchase, expenses, choice;
+         double amount;
+                 
+         PrintWriter output=new PrintWriter("expenses.txt");
+         NumberFormat fmt = NumberFormat.getCurrencyInstance();
+         Scanner scan = new Scanner(System.in);
+                  
+         do{
+             scan.nextLine();
+             System.out.print("Input your name: ");                          
+             name=scan.nextLine();     
+                                         
+             System.out.print("What did you purchase? ");
+             purchase=scan.nextLine();     
+             
+             System.out.print("How much did you pay? ");
+             amount=scan.nextDouble(); 
+                         
+             expenses = name + " purchased " + purchase + " for " + fmt.format(amount);
+             
+             output.println(expenses);
+             
+             System.out.print("Would you like to log another purchase? (y/n)");
+             choice=scan.next();
+             
+             if(choice.equalsIgnoreCase("n"))
+                 System.out.println("Get off of ZoodMall!");
+             
+         }while(choice.equalsIgnoreCase("y"));
+         
+         scan.close();
+         output.close();
+    }    
+}
